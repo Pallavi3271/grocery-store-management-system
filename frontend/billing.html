@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Billing System</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f8;
+      margin: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    select, input {
+      padding: 10px;
+      flex: 1;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .add-btn {
+      background: #007bff;
+    }
+
+    .remove-btn {
+      background: red;
+    }
+
+    .checkout-btn {
+      background: green;
+    }
+
+    .invoice-btn {
+      background: orange;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #333;
+      color: white;
+    }
+
+    #total {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .actions {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .billing-btn {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: green;
+      color: white;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Invoice popup */
+    #invoiceModal {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 30%;
+      width: 40%;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🧾 Billing System</h1>
+
+  <!-- Add Product -->
+  <div class="card">
+    <h2>Add Product</h2>
+
+    <div class="row">
+      <select id="productSelect"></select>
+      <input id="qty" type="number" placeholder="Enter Quantity" min="1">
+      <button class="add-btn" onclick="addToCart()">Add</button>
+    </div>
+  </div>
+
+  <!-- Cart -->
+  <div class="card">
+    <h2>Cart Details</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price (₹)</th>
+          <th>Quantity</th>
+          <th>Total (₹)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="cartTable"></tbody>
+    </table>
+
+    <div id="total">Total: ₹0</div>
+
+    <div class="actions">
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+      <button class="invoice-btn" onclick="showInvoice()">Preview Invoice</button>
+    </div>
+  </div>
+
+  <!-- Invoice Popup -->
+  <div id="invoiceModal">
+    <h2>🧾 Invoice Preview</h2>
+    <div id="invoiceContent"></div>
+
+    <div class="actions">
+      <button onclick="downloadInvoice()">Download PDF</button>
+      <button onclick="closeInvoice()">Close</button>
+    </div>
+  </div>
+
+  <!-- Back -->
+  <a href="index.html" class="billing-btn">⬅ Back to Products</a>
+
+</div>
+
+<script src="js/billing.js"></script>
+
+</body>
+</html>

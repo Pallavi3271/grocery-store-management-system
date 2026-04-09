@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grocery Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🛒 Grocery Store</h1>
+
+  <div class="card">
+    <h2>Add Product</h2>
+
+    <div class="row">
+      <input id="name" placeholder="Name">
+      <input id="price" type="number" placeholder="Price">
+      <input id="quantity" type="number" placeholder="Quantity">
+      <button onclick="addProduct()">Add</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Products</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="product-list"></tbody>
+    </table>
+  </div>
+
+  <a href="billing.html" class="billing-btn">Go to Billing</a>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
